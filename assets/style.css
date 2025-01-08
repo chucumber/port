@@ -1,0 +1,277 @@
+* {
+    box-sizing: border-box;
+    
+    /* Firefox (Custom Scrollbar) */
+    scrollbar-width: thin;
+    scrollbar-color: #096bff #ffffff00;
+}
+
+::selection {
+    color: #dedede;
+    background: #096bff;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff00; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ffffff00 40%, #096bff 100%);
+    border-radius: 10px 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #ffffff00 40%, #09caff 100%);
+    border-radius: 10px 
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: #dedede;
+    color: #3c3c3c;
+    font-family: "Enriqueta", serif;
+    overflow-x: hidden;
+}
+
+.index {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+#home {
+    padding-bottom: 1em;
+    margin: 0;
+    font-size: 16px;
+}
+
+#home a {
+    text-decoration: none;
+    color: #3c3c3c;
+}
+
+#home a:visited {
+    color: #3c3c3c;
+}
+
+#home .fish {
+    display: none;
+}
+
+#home:hover .default {
+    display: none; 
+}
+
+#home:hover .fish {
+    display: inline; 
+}
+
+.dots::after {
+    content: "";
+    color: #096bff;
+    display: inline-block;
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0% { content: ""; }       
+    25% { content: "."; }     
+    50% { content: ".•"; }    
+    75% { content: ".• °"; }   
+    100% { content: ""; }
+}
+
+summary {
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+summary:hover {
+    font-style: italic;    
+}
+
+.work-list {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 320px;
+    height: 420px;
+    padding: 40px;
+    overflow-y: auto; 
+    background-color:#fffb7ebb;
+    -webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+    outline: 1px solid #9b9b9b;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    cursor: grab;
+}
+
+.work-list a {
+    color: #3c3c3c;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.work-list a:hover {
+    font-style: italic;
+}
+
+.work-list details {
+    padding-bottom: 1em;
+}
+
+.work-list ul {
+    padding-left: 1.75em;
+    list-style: '⤷ ';
+    margin: 0;
+}
+
+.about {
+    position: fixed;
+    top: 50%;
+    right: 15%;
+    width: 520px;
+    padding: 40px;
+    overflow-y: auto; 
+    background-color:#a9fcbfbb;
+    -webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+    outline: 1px solid #9b9b9b;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    cursor: grab;
+}
+
+.about p {
+    margin: 0;
+}
+
+
+.work-list:hover, .about:hover {
+    box-shadow: 5px 5px 10px #00000080;
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#flock {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode:color-burn;
+    transform: translate3d(0,0,0); /* fix mix-blend-mode for safari */
+    flex-shrink: 0;
+}
+
+.works {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    gap: 600px;
+    align-items: center;
+}
+
+.slide {
+    position: sticky;
+    top: 120px;
+    width: 60%;
+}
+
+
+.last-but-not-least {
+    width: 100%;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+#see-work {
+    position: absolute;
+    top: calc(100vh - 120px);
+    left: 65%;
+    font-size: 16px;
+    transform: rotate(15deg);
+    transition: transform 0.1s ease-out;
+    letter-spacing: 0.05em;
+}
+
+.see::before {
+    content: "see"; /* Default content */
+    animation: swapWord 1s infinite alternate;
+}
+
+@keyframes swapWord {
+    0%, 50% {
+        content: "see";
+    }
+    51%, 100% {
+        content: "ಠ ಠ";
+    }
+}
+
+
+/* pages */
+
+.page-content {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.gallery img {
+    width: 100%;
+}
+
+.info {
+    width:100%;
+    font-size: 16px;
+    display: flex;
+
+}
+
+.info .title {
+    width: 50%;
+    margin: 0;
+    line-height: 1.25em;
+}
+
+.info a:hover {
+    font-style: italic;
+}
+
+.info a:visited {
+    color: #3c3c3c;
+}
+
+.info .description {
+    width: 50%;
+    margin: 0;
+}
+
+
