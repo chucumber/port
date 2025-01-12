@@ -21,12 +21,12 @@
 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, #ffffff00 40%, #096bff 100%);
-    border-radius: 10px 
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to bottom, #ffffff00 40%, #09caff 100%);
-    border-radius: 10px 
+    border-radius: 4px; 
 }
 
 body {
@@ -38,25 +38,37 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    color: #3c3c3c;
+}
+
+a:hover {
+    font-style: italic;
+}
+
+a:active {
+    color: #096bff;
+}
+
+a:visited{
+    color: #3c3c3c;
+}
+
 .index {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 1em;
+    left: 1em;
 }
 
 #home {
     padding-bottom: 1em;
     margin: 0;
     font-size: 16px;
+    cursor: pointer;
 }
 
 #home a {
     text-decoration: none;
-    color: #3c3c3c;
-}
-
-#home a:visited {
-    color: #3c3c3c;
 }
 
 #home .fish {
@@ -64,11 +76,13 @@ body {
 }
 
 #home:hover .default {
-    display: none; 
+    display: none;
+    font-style: normal; 
 }
 
 #home:hover .fish {
-    display: inline; 
+    display: inline;
+    font-style: normal;  
 }
 
 .dots::after {
@@ -100,13 +114,13 @@ summary:hover {
     position: fixed;
     top: 10%;
     left: 10%;
-    width: 320px;
-    height: 420px;
-    padding: 40px;
+    width: 20em;
+    height: 27em;
+    padding: 2em;
     overflow-y: auto; 
     background-color:#fffb7ebb;
-    -webkit-backdrop-filter: blur(8px);
-	backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(0.5em);
+	backdrop-filter: blur(0.5em);
     outline: 1px solid #9b9b9b;
     display: flex;
     flex-direction: column;
@@ -115,13 +129,7 @@ summary:hover {
 }
 
 .work-list a {
-    color: #3c3c3c;
     font-size: 16px;
-    font-weight: 400;
-}
-
-.work-list a:hover {
-    font-style: italic;
 }
 
 .work-list details {
@@ -138,12 +146,12 @@ summary:hover {
     position: fixed;
     top: 50%;
     right: 15%;
-    width: 520px;
-    padding: 40px;
+    width: 32em;
+    padding: 2em;
     overflow-y: auto; 
     background-color:#a9fcbfbb;
-    -webkit-backdrop-filter: blur(8px);
-	backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(0.5em);
+	backdrop-filter: blur(0.5em);
     outline: 1px solid #9b9b9b;
     display: flex;
     flex-direction: column;
@@ -157,7 +165,7 @@ summary:hover {
 
 
 .work-list:hover, .about:hover {
-    box-shadow: 5px 5px 10px #00000080;
+    box-shadow: 0.25em 0.25em 0.5em #00000080;
 }
 
 .container {
@@ -168,39 +176,42 @@ summary:hover {
     flex-direction: column;
 }
 
-#flock {
+#water {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    mix-blend-mode:color-burn;
+    mix-blend-mode: color-burn;
     transform: translate3d(0,0,0); /* fix mix-blend-mode for safari */
     flex-shrink: 0;
+    z-index: -10;
 }
 
 .works {
     display: flex;
     flex-flow: column;
     position: relative;
-    gap: 600px;
+    margin-top: 5em;
+    gap: 35em;
     align-items: center;
 }
 
 .slide {
     position: sticky;
-    top: 120px;
-    width: 60%;
+    top: 4em;
+    max-width: 60vw;
+    max-height: 65vh;
+    object-fit: contain;
 }
-
 
 .last-but-not-least {
     width: 100%;
-    height: 100px;
+    height: 8em;
     flex-shrink: 0;
 }
 
 #see-work {
     position: absolute;
-    top: calc(100vh - 120px);
+    top: calc(100vh - 4em);
     left: 65%;
     font-size: 16px;
     transform: rotate(15deg);
@@ -230,48 +241,41 @@ summary:hover {
     left: 50%;
     transform: translateX(-50%);
     width: 60vw;
-    padding: 20px 0;
+    padding: 1em 0 5em 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 80px;
+    gap: 5em;
 }
 
 .gallery {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 0.5em;
 }
 
-.gallery img {
+.gallery img, .gallery video {
     width: 100%;
+}
+
+.square {
+    padding: 0 17.5%;
 }
 
 .info {
     width:100%;
     font-size: 16px;
     display: flex;
-
+    gap: 2em;
 }
 
-.info .title {
+.title {
     width: 50%;
-    margin: 0;
-    line-height: 1.25em;
 }
 
-.info a:hover {
-    font-style: italic;
-}
-
-.info a:visited {
-    color: #3c3c3c;
-}
-
-.info .description {
+.description {
     width: 50%;
-    margin: 0;
 }
 
 
