@@ -163,6 +163,9 @@ summary:hover {
     margin: 0;
 }
 
+#email {
+ color: #096bff;
+}
 
 .work-list:hover, .about:hover {
     box-shadow: 0.25em 0.25em 0.5em #00000080;
