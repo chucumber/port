@@ -252,7 +252,7 @@ summary:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5em;
+    gap: 1em;
 }
 
 .gallery img, .gallery video {
@@ -270,11 +270,7 @@ summary:hover {
     gap: 2em;
 }
 
-.title {
-    width: 50%;
-}
-
-.description {
+.title, .description {
     width: 50%;
 }
 
