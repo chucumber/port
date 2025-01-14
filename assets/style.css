@@ -61,14 +61,12 @@ a:visited{
 }
 
 #home {
-    padding-bottom: 1em;
-    margin: 0;
-    font-size: 16px;
+    display: block;
+    margin: 0 0 0.5em -0.15em;
+    font-size: 1.5em;
     cursor: pointer;
-}
-
-#home a {
     text-decoration: none;
+    mix-blend-mode: difference;
 }
 
 #home .fish {
@@ -81,13 +79,15 @@ a:visited{
 }
 
 #home:hover .fish {
-    display: inline;
-    font-style: normal;  
+    display: inline-block;
+    font-style: normal;
+    font-size: 0.75em;
 }
 
 .dots::after {
     content: "";
     color: #096bff;
+    font-style: normal; 
     display: inline-block;
     animation: dots 1.5s steps(4, end) infinite;
 }
@@ -101,7 +101,7 @@ a:visited{
 }
 
 summary {
-    font-size: 14px;
+    font-size: 0.875em;
     font-weight: 700;
     cursor: pointer;
 }
@@ -196,6 +196,7 @@ summary:hover {
     margin-top: 5em;
     gap: 35em;
     align-items: center;
+    background-color: #dedede;
 }
 
 .slide {
@@ -206,7 +207,7 @@ summary:hover {
     object-fit: contain;
 }
 
-.last-but-not-least {
+#last-but-not-least {
     width: 100%;
     height: 8em;
     flex-shrink: 0;
