@@ -19,11 +19,15 @@ detailsElement.on("toggle", function () {
 
 $("#back-to-top").on("click", function (e) {
     e.preventDefault();
+
     $("html, body").animate(
         {
             scrollTop: 0,
         },
-        2000
+        2000, 
+        function () {
+            $("#gallery").prop("open", false);
+        }
     );
 });
 
