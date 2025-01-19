@@ -332,12 +332,14 @@ iframe {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-y: scroll;
 }
 
 .workpage footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding-top: 1rem;
 }
 
 #main {
@@ -389,4 +391,52 @@ iframe {
     opacity: 0.8;
 } */
 
+/* ------- mobile layout ------- */
 
+@media screen and (max-width: 720px) {
+
+    .index {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #about-text {
+        top: 10rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
+        max-height: calc(100vh - 12rem);
+    }
+    
+    #work-list {
+        top: 10rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
+        max-height: calc(100vh - 12rem);
+    }
+
+    iframe {
+        margin-bottom: 1rem;
+        top: 1rem;
+        left: 1rem;
+        transform: translateX(0);
+        overflow-y: auto;     
+        width: calc(100% - 2rem);
+        height: calc(100% - 2rem);
+    }
+
+    #main {
+        flex-direction: column;
+    }
+
+    #info {
+        width: 100%;
+    }
+
+    #corridor {
+        position: relative;
+        height: calc(100vw - 4rem);
+        width: calc(100vw - 4rem);
+        cursor: pointer;
+    }
+
+}
