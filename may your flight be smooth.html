@@ -23,15 +23,14 @@
 
 </head>
 
-<body>
-    
-    <div class="page-content">
+<body class="workpage">
 
-        <div class="info">
+    <section id="main">
+
+        <div id="info">
 
             <div class="title">
-                ⤷ may your flight be smooth, the wind calm, the cloud safe, and the sky blue!
-                <sup>[2024]</sup>
+                may your flight be smooth, the wind calm, the cloud safe, and the sky blue!<sup>[2024]</sup>
             </div>
 
             <div class="description">
@@ -42,46 +41,42 @@
 
         </div>
 
-        <div class="gallery">
-            <video autoplay muted loop>
+        <div id="corridor">
+
+            <img class="corridor-image active" src="pages/may your flight be smooth/IMG_3472.png">
+            <video class="corridor-image" autoplay muted loop preload="none">
                 <source src="pages/may your flight be smooth/1.mp4" type="video/mp4">
             </video>
-            <img src="pages/may your flight be smooth/3.png">
-            <video autoplay muted loop>
+            <img class="corridor-image" src="pages/may your flight be smooth/3.png">
+            <video class="corridor-image" autoplay muted loop preload="none">
                 <source src="pages/may your flight be smooth/2.mp4" type="video/mp4">
             </video>
-            <video autoplay muted loop>
+            <video class="corridor-image" autoplay muted loop preload="none">
                 <source src="pages/may your flight be smooth/4.mp4" type="video/mp4">
             </video>
-            <video autoplay muted loop>
+            <video class="corridor-image" autoplay muted loop preload="none">
                 <source src="pages/may your flight be smooth/3.mp4" type="video/mp4">
             </video>
-            <video autoplay muted loop>
+            <video class="corridor-image" autoplay muted loop preload="none">
                 <source src="pages/may your flight be smooth/7.mp4" type="video/mp4">
             </video>
-            <video autoplay muted loop>
+            <video class="corridor-image" autoplay muted loop preload="none">
                 <source src="pages/may your flight be smooth/5.mp4" type="video/mp4">
             </video>
-            <video autoplay muted loop>
+            <video class="corridor-image" autoplay muted loop preload="none">
                 <source src="pages/may your flight be smooth/6.mp4" type="video/mp4">
             </video>
-            <img src="pages/may your flight be smooth/IMG_3472.png">
-            <img src="pages/may your flight be smooth/IMG_3595.png">
-            <img src="pages/may your flight be smooth/IMG_3331.png">
+            <img class="corridor-image" src="pages/may your flight be smooth/IMG_3595.png">
+            <img class="corridor-image" src="pages/may your flight be smooth/IMG_3331.png">
+
         </div>
 
+    </section>
 
-
-    </div>
-
-    <nav class="index">
-        <a href="index.html" id="home">
-            <span class="default">►<(((( *< </span>
-            <span class="fish">( Khai Tsng )</span>
-            <span class="dots"></span>
-        </a>
-    </nav>
-
+    <footer>
+        <div id="close">⤷ <a id="close-btn">close</a></div>
+        <div id="image-counter">[-/-]</div>
+    </footer>
 
 
 
@@ -89,6 +84,7 @@
     <script src="assets/jquery-3.6.1.min.js"></script>
     <script src="assets/jquery-ui.min.js"></script>
 
-    <script src="assets/scripts.js"></script>
+    <script src="assets/scripts-page.js"></script>
 </body>
+
 </html>

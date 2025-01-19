@@ -23,43 +23,38 @@
 
 </head>
 
-<body>
-    
-    <div class="page-content">
+<body class="workpage">
 
-        <div class="info">
+    <section id="main">
+
+        <div id="info">
 
             <div class="title">
-                ⤷ Take a Walk
-                <sup>[2022]</sup>
+                Take a Walk<sup>[2022]</sup>
             </div>
 
             <div class="description">
-                The self-willed Pegman only reveals the fragments of memories that linger in certain spots. This alternative version of the familiar google map interface invites individuals to slow down, take notice,and view the city from a different perspective.
+                ⤷ <a href="https://chucumber.github.io/under-the-sea/control/index.html" target="_blank">visit the site</a>
                 <br><br>
-                → <a href="https://chucumber.github.io/under-the-sea/control/index.html" target="_blank">visit the site</a>
+                The self-willed Pegman only reveals the fragments of memories that linger in certain spots. This alternative version of the familiar google map interface invites individuals to slow down, take notice,and view the city from a different perspective. 
             </div>
 
         </div>
 
-        <div class="gallery">
-            <video autoplay muted loop>
+        <div id="corridor">
+
+            <video class="corridor-image active" autoplay muted loop preload="none">
                 <source src="pages/take a walk/tour.mp4" type="video/mp4">
             </video>
+
         </div>
 
+    </section>
 
-
-    </div>
-
-    <nav class="index">
-        <a href="index.html" id="home">
-            <span class="default">►<(((( *< </span>
-            <span class="fish">( Khai Tsng )</span>
-            <span class="dots"></span>
-        </a>
-    </nav>
-
+    <footer>
+        <div id="close">⤷ <a id="close-btn">close</a></div>
+        <div id="image-counter">[-/-]</div>
+    </footer>
 
 
 
@@ -67,6 +62,7 @@
     <script src="assets/jquery-3.6.1.min.js"></script>
     <script src="assets/jquery-ui.min.js"></script>
 
-    <script src="assets/scripts.js"></script>
+    <script src="assets/scripts-page.js"></script>
 </body>
+
 </html>

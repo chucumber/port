@@ -1,26 +1,143 @@
-$( function() {
-    $( ".work-list" ).draggable();
-    $( ".about" ).draggable();
-} );
+//when gallery is opened
+const detailsElement = $("#gallery");
 
-const p = document.getElementById('see-work');
-const container = document.querySelector('.container');
+detailsElement.on("toggle", function () {
+    if (this.open) {
 
-container.addEventListener('scroll', () => {
-    let scrollY = container.scrollTop; // Use container's scroll position
+        $("#about, #work").each(function () {
+            this.open = false;
+        });
 
-    p.style.transform = `translateX(${scrollY * 1}px) rotate(15deg)`; // 
+        $("html, body").animate(
+            {
+                scrollTop: $("#undersea-gallery").offset().top,
+            },
+            2000
+        );
+    }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const slides = document.querySelectorAll(".slide");
+$("#back-to-top").on("click", function (e) {
+    e.preventDefault();
+    $("html, body").animate(
+        {
+            scrollTop: 0,
+        },
+        2000
+    );
+});
 
-    slides.forEach(slide => {
-        const randomDuration = (Math.random() * 5 + 20).toFixed(2); // Random duration between 4-7 seconds
-        const randomDelay = (Math.random() * 4).toFixed(2);       // Random delay between 0-2 seconds
+//lightbox
+const images = [
+    "pages/slides/slides.png",
+    "pages/slides/slides1.png",
+    "pages/slides/slides2.png",
+    "pages/slides/slides3.png",
+    "pages/slides/slides4.png",
+    "pages/slides/slides5.png",
+    "pages/slides/slides6.png",
+    "pages/slides/slides7.png",
+    "pages/slides/slides8.png",
+    "pages/slides/slides9.png",
+    "pages/slides/slides10.png",
+    "pages/slides/slides11.png",
+    "pages/slides/slides12.png",
+    "pages/slides/slides13.png",
+    "pages/slides/slides14.png",
+    "pages/slides/slides15.png",
+    "pages/slides/slides16.png",
+    "pages/slides/slides17.png",
+    "pages/slides/slides18.png",
+    "pages/slides/slides19.png",
+    "pages/slides/slides20.png",
+    "pages/slides/slides21.png",
+    "pages/slides/slides22.png",
+    "pages/slides/slides23.png",
+    "pages/slides/slides24.png"
+];
 
-        slide.style.animationDuration = `${randomDuration}s`;
-        slide.style.animationDelay = `${randomDelay}s`;
+let currentIndex = 0;
+
+const galleryImage = document.getElementById("slide");
+const counter = document.getElementById("counter");
+
+// counter
+updateCounter();
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+    galleryImage.src = images[currentIndex];
+    updateCounter();
+}
+
+function updateCounter() {
+    counter.textContent = `[${currentIndex + 1}/${images.length}]`;
+}
+
+//cursor follower in the undersea-gallery
+$(document).ready(function () {
+    var mouseX = 0, mouseY = 0;
+
+    $("#undersea-gallery").on("mousemove", function (e) {
+        $("#follower").show();
+
+        var offset = $(this).offset();
+        mouseX = e.pageX - offset.left;
+        mouseY = e.pageY - offset.top;
+    });
+
+    $("#undersea-gallery").on("mouseleave", function () {
+        $("#follower").hide();
+    });
+
+    $("#undersea-gallery img, #undersea-gallery a").on("mouseenter", function () {
+        $("#follower").css("background-color", "#dedede");
+    });
+    $("#undersea-gallery img, #undersea-gallery a").on("mouseleave", function () {
+        $("#follower").css("background-color", "transparent");
+    });
+
+    var follower = $("#follower");
+    var xp = 0, yp = 0;
+
+    var loop = function () {
+        xp += (mouseX - xp) / 15;
+        yp += (mouseY - yp) / 15;
+        follower.css({ left: xp, top: yp });
+        requestAnimationFrame(loop);
+    };
+    loop();
+});
+
+// open the workpage in iframe 
+const workLinks = document.querySelectorAll("#work-list a");
+const iframe = document.getElementById("display-frame");
+const detailsWork = document.getElementById("work");
+
+workLinks.forEach(link => {
+    link.addEventListener("click", function (event) {
+        event.preventDefault();
+        const pageUrl = this.getAttribute("href"); 
+        iframe.src = pageUrl;
+        iframe.style.display = "block";
     });
 });
 
+detailsWork.addEventListener("toggle", function () {
+    if (!this.open) {
+        iframe.style.display = "none";
+    }
+});
+
+
+// close iframe in workpage
+window.addEventListener("message", (event) => {
+    if (event.data === "closeIframe") {
+        iframe.style.display = "none";
+    }
+});
+
+document.getElementById("close-btn").addEventListener("click", () => {
+    // Send a message to the parent page to close the iframe
+    window.parent.postMessage("closeIframe", "*");
+});
