@@ -400,17 +400,11 @@ iframe {
         justify-content: flex-start;
     }
 
-    #about-text {
+    #about-text, #work-list {
         top: 10rem;
         left: 1rem;
-        width: calc(100% - 2rem);
-        max-height: calc(100vh - 12rem);
-    }
-    
-    #work-list {
-        top: 10rem;
-        left: 1rem;
-        width: calc(100% - 2rem);
+        min-width: calc(100vw - 2rem);
+        width: calc(100vw - 2rem);
         max-height: calc(100vh - 12rem);
     }
 
@@ -424,8 +418,15 @@ iframe {
         height: calc(100% - 2rem);
     }
 
+
+    .workpage {
+        min-height: 100vh;
+        height: 100%;
+    }
+
     #main {
         flex-direction: column;
+        gap: 2rem;
     }
 
     #info {
