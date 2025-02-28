@@ -113,35 +113,3 @@ $(document).ready(function () {
     loop();
 });
 
-// open the workpage in iframe 
-const workLinks = document.querySelectorAll("#work-list a");
-const iframe = document.getElementById("display-frame");
-const detailsWork = document.getElementById("work");
-
-workLinks.forEach(link => {
-    link.addEventListener("click", function (event) {
-        event.preventDefault();
-        const pageUrl = this.getAttribute("href"); 
-        iframe.src = pageUrl;
-        iframe.style.display = "block";
-    });
-});
-
-detailsWork.addEventListener("toggle", function () {
-    if (!this.open) {
-        iframe.style.display = "none";
-    }
-});
-
-
-// close iframe in workpage
-window.addEventListener("message", (event) => {
-    if (event.data === "closeIframe") {
-        iframe.style.display = "none";
-    }
-});
-
-document.getElementById("close-btn").addEventListener("click", () => {
-    // Send a message to the parent page to close the iframe
-    window.parent.postMessage("closeIframe", "*");
-});
