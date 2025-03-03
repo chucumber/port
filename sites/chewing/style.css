@@ -1,0 +1,217 @@
+@import url(https://fonts.bunny.net/css?family=alegreya:400);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  cursor: wait;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: 'Alegreya', serif;
+  font-size: 1.2rem;
+  line-height: 2;
+  background:rgb(225, 225, 225);
+}
+
+
+#ground {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(img/asphalt.png);
+  background-size: 70%;
+  opacity: 1;
+  cursor: crosshair;
+  transition: opacity 1s;
+  z-index: -1;
+}
+
+#drive {
+  position: absolute;
+  top: 60vh;
+  left: 60vw;
+  width: 120px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: grab;
+  z-index: 888;
+  user-select: none;
+}
+
+#drive:hover #drive-icon{
+  transform: rotate(8deg);
+  filter: drop-shadow(8px 8px 6px #00000055);
+}
+
+#drive:active #drive-icon{
+  transform: rotate(8deg);
+  filter: drop-shadow(8px 8px 6px #00000055);
+}
+
+#drive.ui-draggable-dragging {
+  cursor: grabbing !important;
+}
+
+#drive-icon {
+  display: block;
+  filter: drop-shadow(1px 1px 1px #00000080) drop-shadow(3px 5px 6px #40404080);
+  pointer-events: none;
+}
+
+#drive-icon img {
+  width: 120px;
+}
+
+#icon-label {
+  background-color: rgba(185, 185, 185, 0.6);
+  border-radius: 3.5px;
+  width: 100px;
+  text-align: center;
+  color: black;
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  padding: 1.1px;
+}
+
+section#content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem 1rem;
+  top: 0;
+  left: 50vw;
+  transform: translateX(-50%);
+}
+
+section#content p {
+  color: #3c3c3c;
+  margin: 0;
+}
+
+.page a {
+  color: #3c3c3c;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+section#content .paragraph {
+  position: absolute;
+  width: calc(100% - 2rem);
+  height: 100%;
+  min-height: calc(100vh - 4rem);
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: 2rem;
+}
+
+section#content .paragraph span {
+  display: inline-block;
+  transform: translateY(-100vh);
+  transition: transform 1320ms ease-in-out 700ms, filter 500ms ease-in-out 0s;
+}
+
+section#content .paragraph span:nth-child(2n+1) {
+  transition: transform 1523ms ease-in-out 764ms, filter 500ms ease-in-out 0s;
+}
+
+section#content .paragraph span:nth-child(3n+2) {
+  transition: transform 1065ms ease-in 1273ms, filter 500ms ease-in-out 0s;
+  filter: blur(0.05rem);
+}
+
+section#content .paragraph span:nth-child(5n+7) {
+  transition: transform 725ms ease-in-out 962ms, filter 500ms ease-in-out 0s;
+  -webkit-text-stroke-width: 0.05rem;
+}
+
+section#content .paragraph span:nth-child(7n+5) {
+  transition: transform 2369ms ease-in-out 595ms, filter 500ms ease-in-out 0s;
+  filter: blur(0.25rem);
+}
+
+section#content .paragraph span:nth-child(7n+5):hover {
+  cursor: grab;
+  filter: blur(0.05rem);
+}
+
+section#content .paragraph span:nth-child(7n+5):active {
+  cursor: grab;
+  filter: blur(0.05rem);
+}
+
+section#content .paragraph span:nth-child(11n+3) {
+  transition: transform 840ms ease-in-out 1927ms, filter 500ms ease-in-out 0s;
+}
+
+section#content .paragraph span:nth-child(13n+5) {
+  transition: transform 913ms ease-in-out 779ms, filter 500ms ease-in-out 0s;
+}
+
+section#content .paragraph.active {
+  visibility: visible;
+  opacity: 1;
+  transition: 1s ease-in-out 0s;
+}
+
+section#content .paragraph.active span {
+  transform: translateY(0);
+}
+
+section#content .paragraph.disappear {
+  visibility: visible;
+  opacity: 0;
+  transition: 1500ms ease-in-out 500ms;
+}
+
+section#content .paragraph.disappear span {
+  transform: translateY(100vh);
+}
+
+/* Mobile devices */
+@media screen and (max-width: 768px) {
+
+  body {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  #drive {
+    width: 80px;
+  }
+
+  #drive-icon img {
+    width: 80px;
+  }
+
+  #icon-label {
+    width: 70px;
+    font-size: 0.7rem;
+  }
+
+  section#content {
+    max-width: 100%;
+    padding: 1rem 0.75rem;
+  }
+
+  section#content .paragraph {
+    min-height: calc(100vh - 2rem);
+    width: calc(100% - 1.5rem);
+    gap: 1.5rem;
+  }
+
+  section#content .paragraph span {
+    transition: transform 1000ms ease-in-out 500ms, filter 300ms ease-in-out 0s;
+  }
+}
