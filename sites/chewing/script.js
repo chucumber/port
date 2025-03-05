@@ -1,6 +1,6 @@
 var isPickedUp = false;
 var longPressTimer;
-var longPressDuration = 1000; // 1 second for long press
+var longPressDuration = 800; 
 
 $(document).ready(function() {
   $("#drive").draggable({
@@ -15,24 +15,35 @@ $(document).ready(function() {
     }
   });
 
-  // Add touch event listeners for long press
-  $("#drive").on('touchstart', function(e) {
-    e.preventDefault();
-    longPressTimer = setTimeout(function() {
-      pickup();
-    }, longPressDuration);
-  });
+    // long press for mobile
+    $("#drive").on('touchstart', function(e) {
+      e.preventDefault();
+
+      if (navigator.vibrate) {
+        navigator.vibrate(50);
+      }
+
+      longPressTimer = setTimeout(function() {
+        pickup();
+      }, longPressDuration);
+    });
 
   $("#drive").on('touchend touchcancel', function(e) {
     e.preventDefault();
     clearTimeout(longPressTimer);
+    if (navigator.vibrate) {
+      navigator.vibrate(0); 
+    }
   });
 
-  // Keep existing double-click for desktop
+  // double-click for desktop
   $("#drive").dblclick(function(e) {
     pickup();
     e.preventDefault();
   });
+
+
+  // chapter moving
 
   $(document).on('click', '.next', function(e) {
     e.preventDefault();
@@ -62,40 +73,16 @@ function pickup() {
 //chapter moving 
 
 window.addEventListener('load',load);
-// window.addEventListener('wheel',throttle(scroll,2000));
-
 
 var index=0; //new project count
 var pIndex; //previous project count
 
 function load() {
-  var textElements = document.querySelectorAll('.words:not(.page)');
-  var pageElements = document.getElementsByClassName("page");
-  pIndex = textElements.length - 1;
-  
-  // Process main text paragraphs
-  textElements.forEach(element => {
-    let textContent = element.textContent;
-    element.innerHTML = addSpan(textContent);
-  });
+  var textElements = document.querySelectorAll('.words');
 
-  // Handle page numbers with spans
-  Array.from(pageElements).forEach((page, pageIndex) => {
-    let text = page.textContent.trim();
-    let parts = text.split(/(\d+)\s*\/\s*(\d+)/).filter(part => part.trim());
-    
-    let newHTML = '';
-    parts.forEach((part, i) => {
-      if (i === 0) { // First number
-        newHTML += `<span>${part}</span><span>&ensp;/&ensp;</span>`;
-      } else if (i === 1) { // Second number
-        newHTML += `<span>${part}</span><span>&ensp;</span>`;
-      }
-    });
-    
-    const linkText = pageIndex === pageElements.length - 1 ? 'recollect' : 'continue';
-    newHTML += `<span>-</span>&ensp;<span>[</span><span><a class="next">${linkText}</a></span><span>]</span>`;
-    page.innerHTML = newHTML;
+  textElements.forEach(element => {
+    // Preserve HTML tags like <sup>
+    element.innerHTML = element.innerHTML.replace(/(?![^<]+>)([\w'-]+)(?![^<]+>)/g, '<span>$1</span>');
   });
 }
 
