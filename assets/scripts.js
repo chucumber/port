@@ -24,8 +24,8 @@ $("#back-to-top").on("click", function (e) {
         {
             scrollTop: 0,
         },
-        2000, 
-        function () {
+        2000,
+        function() {
             $("#gallery").prop("open", false);
         }
     );
