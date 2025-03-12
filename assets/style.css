@@ -273,9 +273,11 @@ a#back-to-top {
 }
 
 .bubbles p {
+    min-width: 100px;
     text-align: justify;
     text-align-last: justify;
     word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 .ooo::after {
@@ -410,9 +412,9 @@ a#back-to-top {
     #work .box, #about .box {
         position: relative;
         width: calc(100vw - 2rem);
-        margin-top: 0;
+        margin-top: 1rem;
         margin-bottom: 1rem;
-        padding: 2rem 1rem;
+        padding: 1rem 1rem;
         max-height: 100%;
     }
 
